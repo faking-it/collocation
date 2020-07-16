@@ -1,23 +1,31 @@
 <!-- Toolbar -->
 <mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav mode="over" [(opened)]='opened'>
+  <mat-sidenav #sidenav mode="over" [(opened)]="opened">
+    <div class="header">
+      <h2>Navigation</h2>
+    </div>
     <div class="content">
-      <div class="header">
-        <h2>SideNav</h2>
-      </div>
+      <h3>
+        <a routerLink="/flats" (click)="sidenav.toggle()"
+          ><fa-icon [icon]="faBuilding"></fa-icon>Appartements</a
+        >
+      </h3>
+      <h3>
+        <a routerLink="/schedule" (click)="sidenav.toggle()"
+          ><fa-icon [icon]="faCalendarAlt"></fa-icon>Calendrier</a
+        >
+      </h3>
     </div>
   </mat-sidenav>
-  
-  <mat-sidenav-content>
 
+  <mat-sidenav-content>
     <div class="toolbar" role="banner">
-      <fa-icon [icon]="faBuilding"></fa-icon>
+      <fa-icon [icon]="faUsers"></fa-icon>
       <span>Collocation</span>
       <div class="spacer"></div>
-      <fa-icon [icon]="faBars" (click)=sidenav.toggle()></fa-icon>
+      <fa-icon [icon]="faBars" (click)="sidenav.toggle()"></fa-icon>
     </div>
 
     <router-outlet></router-outlet>
-
   </mat-sidenav-content>
 </mat-sidenav-container>
