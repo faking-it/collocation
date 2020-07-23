@@ -1,41 +1,19 @@
-.example-container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-mat-sidenav {
-  background-color: #3d3d3d;
-  color: white;
-  width: 60%;
-  height: fit-content;
-}
-
-a {color: white;}
-a:hover {
-  font-size: large;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  display: flex;
-  color: white;
-  font-weight: 600;
-  background-color: #2b2b2b;
-}
-
-.header > h2 {
-  align-self: center;
+.btn-submit {
   text-align: center;
-  flex: auto;
+}
+
+.mat-table {
+  width: 100%;
+}
+
+.cdk-column-position {
+  width: 10%;
+  text-align: center;
+  padding-right: 24px;
+}
+
+.example-form {
+  margin-top: 10px;
 }
 
 :host {
@@ -91,9 +69,13 @@ fa-icon:nth-of-type(2n) {
   margin-right: 18px;
 }
 
+fa-icon:nth-of-type(2n):hover {
+  opacity: 0.8;
+}
+
 .content {
   display: flex;
-  margin: 70px auto 32px;
+  margin: 82px auto 32px;
   padding: 0 16px;
   max-width: 960px;
   flex-direction: column;
@@ -187,6 +169,17 @@ svg#rocket-smoke {
   z-index: -10;
 }
 
+a,
+a:visited,
+a:hover {
+  color: #1976d2;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #125699;
+}
+
 .terminal {
   position: relative;
   width: 80%;
@@ -249,7 +242,8 @@ footer {
 
 /* Responsive Styles */
 @media screen and (max-width: 767px) {
-  .card-container > *:not(.circle-link),
+
+  .card-container>*:not(.circle-link),
   .terminal {
     width: 100%;
   }

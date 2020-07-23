@@ -23,7 +23,18 @@
       <fa-icon [icon]="faUsers"></fa-icon>
       <span>Collocation</span>
       <div class="spacer"></div>
-      <fa-icon [icon]="faBars" (click)="sidenav.toggle()"></fa-icon>
+      <a routerLinkActive="active" routerLink="auth/signup" *ngIf="!isAuth">
+        <fa-icon [icon]="faUserPlus"></fa-icon>
+      </a>
+      <a routerLinkActive="active" routerLink="auth/signin" *ngIf="!isAuth">
+        <fa-icon [icon]="faSignInAlt"></fa-icon>
+      </a>
+      <a (click)="onSignOut()" style="cursor:pointer" *ngIf="isAuth">
+        <fa-icon [icon]="faSignOutAlt"></fa-icon>
+      </a>
+      <a (click)="sidenav.toggle()" *ngIf="isAuth">
+        <fa-icon [icon]="faBars"></fa-icon>
+      </a>
     </div>
 
     <router-outlet></router-outlet>
