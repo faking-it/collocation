@@ -6,7 +6,6 @@ import DataSnapshot = firebase.database.DataSnapshot;
 
 @Injectable()
 export class FlatService {
-
   flats: Flat[] = [];
   flatsSubject = new Subject<Flat[]>();
 
@@ -19,12 +18,14 @@ export class FlatService {
   }
 
   getFlats() {
-    firebase.database().ref('/flats')
+    firebase
+      .database()
+      .ref('flats/')
       .on('value', (data: DataSnapshot) => {
         this.flats = data.val() ? data.val() : [];
         this.emitFlats();
-      }
-      );
+      });
+    console.log(this.flats);
   }
 
   constructor() {
@@ -38,13 +39,11 @@ export class FlatService {
   }
 
   removeFlat(flat: Flat) {
-    const flatIndexToRemove = this.flats.findIndex(
-      (flatEl) => {
-        if (flatEl === flat) {
-          return true;
-        }
+    const flatIndexToRemove = this.flats.findIndex((flatEl) => {
+      if (flatEl === flat) {
+        return true;
       }
-    );
+    });
     this.flats.splice(flatIndexToRemove, 1);
     this.saveFlats();
     this.emitFlats();

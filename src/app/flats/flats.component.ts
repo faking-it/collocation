@@ -5,11 +5,7 @@ import { Flat } from '../models/flat.model';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
-import { HttpClient } from '@angular/common/http';
-
-import {
-  faPlusCircle
-} from '@fortawesome/free-solid-svg-icons';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 export interface Flats {
   url: string;
@@ -24,8 +20,6 @@ const ELEMENT_DATA: Flats[] = [];
   styleUrls: ['./flats.component.css'],
 })
 export class FlatsComponent implements OnInit, OnDestroy {
-  
-
   faPlusCircle = faPlusCircle;
 
   new_url: string = '';
@@ -44,7 +38,7 @@ export class FlatsComponent implements OnInit, OnDestroy {
   flats: Flat[];
   flatsSubscription: Subscription;
 
-  constructor(private flatsService: FlatService, private router: Router) { }
+  constructor(private flatsService: FlatService, private router: Router) {}
 
   ngOnInit() {
     this.flatsSubscription = this.flatsService.flatsSubject.subscribe(

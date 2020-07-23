@@ -8,7 +8,6 @@ import {
   faSignInAlt,
   faSignOutAlt,
   faUserPlus,
-
 } from '@fortawesome/free-solid-svg-icons';
 import * as firebase from 'firebase';
 
@@ -43,6 +42,7 @@ export class AppComponent {
       measurementId: 'G-GY6N31727J',
     };
     firebase.initializeApp(config);
+    firebase.analytics();
   }
 
   ngOnInit() {
